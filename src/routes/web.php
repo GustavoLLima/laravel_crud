@@ -16,12 +16,12 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
-    #return 'Hello World com Laravel';
 });
 
-Route::get('/hello/', function () {
-	//return view('welcome');
-    return 'Hello World';
-});
+Route::resource('posts', PostController::class)->middleware('auth');
 
-Route::resource('posts', PostController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', function () {
-    return "Hello World";
+Route::get('/hello2', function () {
+    return "Hello World2";
 });
 
 Route::resource('posts', PostController::class)->middleware('auth');

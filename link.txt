@@ -1,3 +1,14 @@
+json/ajax:
+
+https://cursos.alura.com.br/forum/topico-como-utilizar-o-ajax-no-laravel-32577
+
+https://www.positronx.io/laravel-ajax-example-tutorial/
+
+https://laracasts.com/discuss/channels/laravel/filter-data-with-laravel
+
+-----------------
+
+
 https://www.twilio.com/blog/get-started-docker-laravel
 
 

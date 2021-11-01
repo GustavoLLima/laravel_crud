@@ -22,7 +22,12 @@ Route::get('/hello2', function () {
     return "Hello World2";
 });
 
+Route::get('/posts/indexjson', [PostController::class, 'indexjson'])->middleware('auth');;
+
 Route::resource('posts', PostController::class)->middleware('auth');
+
+//Route::get('/posts/indexjson', PostController::class)->middleware('auth');
+//Route::get('/posts/indexjson', [PostController::class, 'indexjson'])->middleware('auth');;
 
 Route::get('/dashboard', function () {
     return view('dashboard');

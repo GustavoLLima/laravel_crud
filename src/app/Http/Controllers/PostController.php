@@ -21,6 +21,19 @@ class PostController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexjson()
+    {
+        $data = Post::latest()->paginate(5);
+    
+        return view('posts.indexjson',compact('data'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

@@ -12,8 +12,8 @@ services:
             MYSQL_USER: MYSQL_USER
             MYSQL_PASSWORD: MYSQL_PASSWORD
         #optional: keep db information
-        volumes:
-            - ./db/store_db:/var/lib/mysql
+        # volumes:
+        #     - ./db/store_db:/var/lib/mysql
         ports:
             - "9906:3306"
     phpmyadmin:

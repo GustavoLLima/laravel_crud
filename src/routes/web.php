@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/hello', function () {
+    return "Hello World";
+});
+
 Route::resource('posts', PostController::class)->middleware('auth');
 
 Route::get('/dashboard', function () {

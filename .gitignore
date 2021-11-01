@@ -1,3 +1,2 @@
-db/old/
-db/store_db/
-postgres-data/
+db/old/*
+db/store_db/*

@@ -15,8 +15,17 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index') OR request()->routeIs('posts.create') OR request()->routeIs('posts.show') OR request()->routeIs('posts.edit')">
+                    <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index') OR request()->routeIs('items.create') OR request()->routeIs('items.show') OR request()->routeIs('items.edit')">
+                        {{ __('Items') }}
+                    </x-nav-link>
+                    <!-- <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index') OR request()->routeIs('posts.create') OR request()->routeIs('posts.show') OR request()->routeIs('posts.edit')">
                         {{ __('Posts') }}
+                    </x-nav-link> -->
+                    <x-nav-link :href="route('types.index')" :active="request()->routeIs('types.index') OR request()->routeIs('types.create') OR request()->routeIs('types.show') OR request()->routeIs('types.edit')">
+                        {{ __('Types') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('levels.index')" :active="request()->routeIs('levels.index') OR request()->routeIs('levels.create') OR request()->routeIs('levels.show') OR request()->routeIs('levels.edit')">
+                        {{ __('Levels') }}
                     </x-nav-link>
                 </div>
             </div>

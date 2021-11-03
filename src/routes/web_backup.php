@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\TypeController;
-use App\Http\Controllers\LevelController;
-use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +25,6 @@ Route::get('/hello2', function () {
 Route::get('/posts/indexjson', [PostController::class, 'indexjson'])->middleware('auth');;
 
 Route::resource('posts', PostController::class)->middleware('auth');
-Route::resource('types', TypeController::class)->middleware('auth');
-Route::resource('levels', LevelController::class)->middleware('auth');
-Route::resource('items', ItemController::class)->middleware('auth');
 
 //Route::get('/posts/indexjson', PostController::class)->middleware('auth');
 //Route::get('/posts/indexjson', [PostController::class, 'indexjson'])->middleware('auth');;

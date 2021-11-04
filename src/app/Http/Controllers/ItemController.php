@@ -170,9 +170,11 @@ class ItemController extends Controller
 
         $types = Type::all();
         $levels = Level::all();
+
+        return view('items.search',compact('data', 'types', 'levels', 'filters'));
     
-        return view('items.search',compact('data', 'types', 'levels', 'filters'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        // return view('items.search',compact('data', 'types', 'levels', 'filters'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
 
 
         // Funciona sem filtro

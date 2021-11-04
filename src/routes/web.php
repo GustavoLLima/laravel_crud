@@ -21,18 +21,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello2', function () {
-    return "Hello World2";
+// Route::get('/items/search', [ItemController::class, 'search'])->middleware('auth')->name('items.search');
+
+// Route::resource('posts', PostController::class)->middleware('auth');
+// Route::resource('types', TypeController::class)->middleware('auth');
+// Route::resource('levels', LevelController::class)->middleware('auth');
+// Route::resource('items', ItemController::class)->middleware('auth');
+
+Route::middleware('auth')->group(function(){
+	Route::resource('types', TypeController::class);
+	
+	Route::resource('levels', LevelController::class);
+
+	Route::prefix('items')->name('items.')->group(function(){
+		Route::resource('/',ItemController::class);
+		Route::get('/search', [ItemController::class, 'search'])->name('search');
+	});
+
+	Route::prefix('posts')->name('posts.')->group(function(){
+		Route::resource('/', PostController::class);
+		Route::get('indexjson', [PostController::class, 'indexjson'])->name('indexjson');
+	});
 });
-
-Route::get('/posts/indexjson', [PostController::class, 'indexjson'])->middleware('auth');;
-
-Route::get('/items/search', [ItemController::class, 'search'])->middleware('auth')->name('items.search');
-
-Route::resource('posts', PostController::class)->middleware('auth');
-Route::resource('types', TypeController::class)->middleware('auth');
-Route::resource('levels', LevelController::class)->middleware('auth');
-Route::resource('items', ItemController::class)->middleware('auth');
 
 //Route::get('/posts/indexjson', PostController::class)->middleware('auth');
 //Route::get('/posts/indexjson', [PostController::class, 'indexjson'])->middleware('auth');;

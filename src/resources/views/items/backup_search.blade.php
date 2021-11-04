@@ -15,7 +15,7 @@
             <select name="type_id">
                 <option value="0">All</option>
                 @foreach ($types as $type)
-                    @if (isset($filters->type_id) AND $type->id == $filters->type_id)
+                    @if ($type->id == $filters->type_id)
                         <option value="{{ $type->id }}" selected>{{ $type->name }}</option>
                     @else
                         <option value="{{ $type->id }}">{{ $type->name }}</option>
@@ -28,7 +28,7 @@
             <select name="level_id">
                 <option value="0">All</option> 
                 @foreach ($levels as $level)
-                    @if (isset($filters->level_id) AND $level->id == $filters->level_id)
+                    @if ($level->id == $filters->level_id)
                         <option value="{{ $level->id }}" selected>{{ $level->name }}</option>
                     @else
                         <option value="{{ $level->id }}">{{ $level->name }}</option>
@@ -43,25 +43,17 @@
             <input class="form-check-input" {{-- $filters->superior ? 'checked' : '' --}} type="checkbox" name="superior" id="superior"> -->
             <strong>Superior:</strong>
             <select name="superior">
-                <option value="3" @if (isset($filters->superior) AND $filters->superior == 3) selected @endif>All</option>
-                <option value="0" @if (isset($filters->superior) AND $filters->superior == 0) selected @endif>No</option>
-                <option value="1" @if (isset($filters->superior) AND $filters->superior == 1) selected @endif>Yes</option>
-
-                <!-- <option value="3" {{-- $filters->superior == 3 ? 'selected' : '' --}}>All</option>
-                <option value="0" {{-- $filters->superior == 0 ? 'selected' : '' --}}>No</option>
-                <option value="1" {{-- $filters->superior == 1 ? 'selected' : '' --}}>Yes</option> -->
+                <option value="3" {{ $filters->superior == 3 ? 'selected' : '' }}>All</option>
+                <option value="0" {{ $filters->superior == 0 ? 'selected' : '' }}>No</option>
+                <option value="1" {{ $filters->superior == 1 ? 'selected' : '' }}>Yes</option>
             </select>
         </div>
         <div class="form-group col-md-2">
             <strong>Eth:</strong>
             <select name="eth">
-                <option value="3" @if (isset($filters->eth) AND $filters->eth == 3) selected @endif>All</option>
-                <option value="0" @if (isset($filters->eth) AND $filters->eth == 0) selected @endif>No</option>
-                <option value="1" @if (isset($filters->eth) AND $filters->eth == 1) selected @endif>Yes</option>
-
-                <!-- <option value="3" {{-- $filters->eth == 3 ? 'selected' : '' --}}>All</option>
-                <option value="0" {{-- $filters->eth == 0 ? 'selected' : '' --}}>No</option>
-                <option value="1" {{-- $filters->eth == 1 ? 'selected' : '' --}}>Yes</option> -->
+                <option value="3" {{ $filters->eth == 3 ? 'selected' : '' }}>All</option>
+                <option value="0" {{ $filters->eth == 0 ? 'selected' : '' }}>No</option>
+                <option value="1" {{ $filters->eth == 1 ? 'selected' : '' }}>Yes</option>
             </select>
             <!-- <label class="form-check-label" for="eth">
             Eth?
@@ -70,7 +62,7 @@
         </div>
         <div class="form-group col-md-2">
             <!-- <strong>Sockets:</strong> -->
-            <input type="number" name="sockets" value="@if (isset($filters->sockets) AND $filters->sockets != NULL) $filters->sockets @endif" class="form-control" placeholder="Nr. of Sockets">
+            <input type="number" name="sockets" value="{{ $filters->sockets }}" class="form-control" placeholder="Nr. of Sockets">
         </div>
         <!-- <div class="form-row">
         <div class="form-group col-md-6">

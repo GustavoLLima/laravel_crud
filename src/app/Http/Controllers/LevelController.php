@@ -16,9 +16,11 @@ class LevelController extends Controller
     {
         //$data = Type::latest()->paginate(5);
         $data = Level::orderBy('id')->paginate(5);
+
+        return view('levels.index',compact('data'));
     
-        return view('levels.index',compact('data'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        // return view('levels.index',compact('data'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -29,9 +31,11 @@ class LevelController extends Controller
     public function indexjson()
     {
         $data = Level::latest()->paginate(5);
+
+        return view('levels.indexjson',compact('data'));
     
-        return view('levels.indexjson',compact('data'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        // return view('levels.indexjson',compact('data'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

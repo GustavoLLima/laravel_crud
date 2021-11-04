@@ -21,9 +21,11 @@ class ItemController extends Controller
     {
         //$data = Item::latest()->paginate(5);
         $data = Item::orderBy('id')->paginate(5);
+
+        return view('items.index',compact('data'));
     
-        return view('items.index',compact('data'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        // return view('items.index',compact('data'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function search(Request $request)
@@ -182,9 +184,11 @@ class ItemController extends Controller
     public function indexjson()
     {
         $data = Item::latest()->paginate(5);
+
+        return view('items.indexjson',compact('data'));
     
-        return view('items.indexjson',compact('data'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        // return view('items.indexjson',compact('data'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

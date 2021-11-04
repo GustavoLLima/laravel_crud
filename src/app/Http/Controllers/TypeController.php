@@ -16,9 +16,11 @@ class TypeController extends Controller
     {
         //$data = Type::latest()->paginate(5);
         $data = Type::orderBy('id')->paginate(5);
+
+        return view('types.index',compact('data'));
     
-        return view('types.index',compact('data'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        // return view('types.index',compact('data'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -29,9 +31,11 @@ class TypeController extends Controller
     public function indexjson()
     {
         $data = Type::latest()->paginate(5);
+
+        return view('types.indexjson',compact('data'));
     
-        return view('types.indexjson',compact('data'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        // return view('types.indexjson',compact('data'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

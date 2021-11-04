@@ -8,7 +8,7 @@
             <h2>Add New Item</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('items.index') }}"> Back</a>
+            <a class="btn btn-primary" onclick="javascript:history.go(-1)"> Back</a>
         </div>
     </div>
 </div>
@@ -79,7 +79,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description:</strong>
-                <input type="text" name="description" class="form-control" placeholder="Enter Description">
+                <textarea class="form-control" name="description" placeholder="Enter Description"></textarea>
             </div>
         </div>
 

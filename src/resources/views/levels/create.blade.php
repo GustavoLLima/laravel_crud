@@ -8,7 +8,7 @@
             <h2>Add New Level</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('levels.index') }}"> Back</a>
+            <a class="btn btn-primary" onclick="javascript:history.go(-1)"> Back</a>
         </div>
     </div>
 </div>

@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Product</h2>
+                <h2>Edit Post</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
+                <a class="btn btn-primary" onclick="javascript:history.go(-1)"> Back</a>
             </div>
         </div>
     </div>

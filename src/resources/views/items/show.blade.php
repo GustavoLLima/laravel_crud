@@ -7,18 +7,19 @@
                 <h2> Show Item</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('items.index') }}"> Back</a>
+                <!-- <a class="btn btn-primary" href="{{-- route('items.index') --}}"> Back</a> -->
+                <a class="btn btn-primary" onclick="javascript:history.go(-1)"> Back</a>
             </div>
         </div>
     </div>
    
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <!-- <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>ID:</strong>
-                {{ $item->id }}
+                {{-- $item->id --}}
             </div>
-        </div>
+        </div> -->
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
@@ -47,12 +48,6 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Description:</strong>
-                {{ $item->description }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
                 <strong>Sockets:</strong>
                 {{ $item->sockets }}
             </div>
@@ -69,5 +64,11 @@
                 {{ $item->level->name }}
             </div>
         </div>
+        <!-- <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Description:</strong>
+                {{-- $item->description --}}
+            </div>
+        </div> -->
     </div>
 @endsection

@@ -9,6 +9,9 @@
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('items.create') }}"> Create New Item</a>
             </div>
+            <div class="pull-right">
+                <a class="btn btn-info" href="{{ route('items.search') }}"> Search</a>
+            </div>
         </div>
     </div>
    
@@ -27,7 +30,7 @@
             <th>Sockets</th>
             <th>Type</th>
             <th>Level</th>
-            <th>Description</th>
+            <!-- <th>Description</th> -->
             <!-- <th>Details</th> -->
             <th width="280px">Action</th>
         </tr>
@@ -52,7 +55,7 @@
             <td>{{ $value->sockets }}</td>
             <td>{{ $value->type->name }}</td>
             <td>{{ $value->level->name }}</td>
-            <td>{{ $value->description }}</td>
+            <!-- <td>{{-- $value->description --}}</td> -->
             <!-- <td>{{ \Str::limit($value->description, 100) }}</td> -->
             <td>
                 <form action="{{ route('items.destroy',$value->id) }}" method="POST">   

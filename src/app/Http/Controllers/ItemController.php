@@ -26,6 +26,154 @@ class ItemController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    public function search(Request $request)
+    {
+        // if (isset($request['level_id'])){
+        //      echo "level não vazio";
+        //     if($request['sockets'] == "")
+        //         echo "branco";
+        //     else
+        //         echo "não branco";
+        // }   
+        // else{
+        //     echo "level vazio";
+        // }
+
+
+        //if(!empty($request->input('user_id'))) {
+
+        // $data = Item::where('type_id', '1')->get();
+        // dd($query);
+
+        $conditions = [];
+
+        // type_id
+        // level_id
+        // superior
+        // eth
+        // sockets
+
+        $filters = (object)[];
+
+        if (isset($request['type_id']) AND $request['type_id'] != 0){
+            array_push($conditions, ['type_id', '=', $request['type_id']]);
+            $filters->type_id = $request['type_id'];
+        } else{
+            $filters->type_id = NULL;
+        }
+        if (isset($request['level_id']) AND $request['level_id'] != 0){
+            array_push($conditions, ['level_id', '=', $request['level_id']]);
+            $filters->level_id = $request['level_id'];
+        } else{
+            $filters->level_id = NULL;
+        }
+
+
+        if (isset($request['superior']) AND $request['superior'] != 3){
+            array_push($conditions, ['superior', '=', $request['superior']]);
+            $filters->superior = $request['superior'];
+        } else{
+            $filters->superior = 3;
+        }
+
+
+
+        if (isset($request['eth']) AND $request['eth'] != 3){
+            array_push($conditions, ['eth', '=', $request['eth']]);
+            $filters->eth = $request['eth'];
+        } else{
+            $filters->eth = 3;
+        }
+
+        if (isset($request['sockets']) AND $request['sockets'] != NULL){
+            array_push($conditions, ['sockets', '=', $request['sockets']]);
+            $filters->sockets = $request['sockets'];
+        } else{
+            $filters->sockets = NULL;
+        }
+        
+        // var_dump($conditions); exit();
+
+        $data = Item::where($conditions)->get();
+
+
+        // $query = Item::where(function ($q) use ($conditions) {
+        // foreach ($conditions as $condition) {
+        //     $q->Where($condition[0], $condition[1], $condition[2]);
+        //     }
+        // })->get();
+
+
+
+        // dd($query->getBindings());
+
+        // echo $data; exit();
+
+        // //array_push($conditions, ['type_id', '1']);
+
+        // $data = Item::where("type_id", "=", 1)->toSql();
+  
+        // echo $data; exit();
+
+        // $data = Item::where(function ($query) {
+        // $query->where('name', '=', 'John');
+        // $query->where('name', '=', 'Ae');
+        // foreach ($conditions as $condition) {
+        //     //$q->Where($condition[0], $condition[1], $condition[2]);
+        //     $query->Where($condition[0], $condition[1], $condition[2]);
+        //     //$q->orWhere('family_name', 'like', "%{$value}%");
+        //     }
+        // })->toSql();
+        // //->get();
+
+        // echo $data; exit();
+
+        // var_dump($data); exit();
+
+        // if(sizeof($conditions) != 0)
+        //     $data = Item::orderBy('id')->where($conditions);
+        //     //$data = Item::all();
+        // else
+        //     $data = Item::orderBy('id')->paginate(5);
+
+        // //echo $conditions[0][2];
+        // var_dump($conditions);
+        // exit();
+
+
+
+
+
+
+
+
+        //$data = Item::orderBy('id')->paginate(5);
+
+        //var_dump($conditions); exit();
+
+        // $request['type_id'] = 1;
+
+        // if(!empty($request->input('type_id')))
+        //     $data->where('type_id', '=', $request['type_id']);
+
+
+        $types = Type::all();
+        $levels = Level::all();
+    
+        return view('items.search',compact('data', 'types', 'levels', 'filters'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
+        // Funciona sem filtro
+        // $data = Item::orderBy('id')->paginate(5);
+
+        // $types = Type::all();
+        // $levels = Level::all();
+    
+        // return view('items.search',compact('data', 'types', 'levels'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -128,7 +276,7 @@ class ItemController extends Controller
             $request['superior'] = 1;
         else
             $request['superior'] = 0;
-        
+
         if($request->eth == "on")
             $request['eth'] = 1;
         else

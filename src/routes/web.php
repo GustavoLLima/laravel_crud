@@ -27,6 +27,8 @@ Route::get('/hello2', function () {
 
 Route::get('/posts/indexjson', [PostController::class, 'indexjson'])->middleware('auth');;
 
+Route::get('/items/search', [ItemController::class, 'search'])->middleware('auth')->name('items.search');
+
 Route::resource('posts', PostController::class)->middleware('auth');
 Route::resource('types', TypeController::class)->middleware('auth');
 Route::resource('levels', LevelController::class)->middleware('auth');

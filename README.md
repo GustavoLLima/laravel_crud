@@ -28,3 +28,11 @@ DB_PASSWORD=MYSQL_PASSWORD
 O projeto estará disponível na máquina host, através do endereço:
 
 http://localhost/
+
+A home está em:
+
+http://localhost/dashboard
+
+Para acessar as páginas internas, é necessário realizar um cadastro, feito em:
+
+http://localhost/register

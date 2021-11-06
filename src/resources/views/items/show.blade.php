@@ -64,11 +64,11 @@
                 {{ $item->level->name }}
             </div>
         </div>
-        <!-- <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description:</strong>
-                {{-- $item->description --}}
+                {{ $item->description }}
             </div>
-        </div> -->
+        </div>
     </div>
 @endsection

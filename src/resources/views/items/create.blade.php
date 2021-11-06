@@ -53,7 +53,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Sockets:</strong>
-                <input type="number" name="sockets" class="form-control" placeholder="Nr. of Sockets">
+                <input type="number" name="sockets" class="form-control" value="0" placeholder="Nr. of Sockets">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

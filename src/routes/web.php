@@ -33,15 +33,21 @@ Route::middleware('auth')->group(function(){
 	
 	Route::resource('levels', LevelController::class);
 
-	Route::prefix('items')->name('items.')->group(function(){
-		Route::resource('/',ItemController::class);
-		Route::get('/search', [ItemController::class, 'search'])->name('search');
-	});
+	Route::get('items/search', [ItemController::class, 'search'])->name('items.search');
+	Route::resource('items', ItemController::class);
 
-	Route::prefix('posts')->name('posts.')->group(function(){
-		Route::resource('/', PostController::class);
-		Route::get('indexjson', [PostController::class, 'indexjson'])->name('indexjson');
-	});
+	Route::get('posts/indexjson', [ItemController::class, 'search'])->name('posts.indexjson');
+	Route::resource('posts', PostController::class);
+
+	// Route::prefix('items')->name('items.')->group(function(){
+	// 	Route::resource('/',ItemController::class);
+	// 	Route::get('/search', [ItemController::class, 'search'])->name('search');
+	// });
+
+	// Route::prefix('posts')->name('posts.')->group(function(){
+	// 	Route::resource('/', PostController::class);
+	// 	Route::get('indexjson', [PostController::class, 'indexjson'])->name('indexjson');
+	// });
 });
 
 //Route::get('/posts/indexjson', PostController::class)->middleware('auth');

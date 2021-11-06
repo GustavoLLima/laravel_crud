@@ -240,6 +240,9 @@ class ItemController extends Controller
             $request['eth'] = 1;
         else
             $request['eth'] = 0;
+
+        if($request->sockets == NULL)
+            $request['sockets'] = 0;
     
         Item::create($request->all());
      
@@ -296,6 +299,9 @@ class ItemController extends Controller
             $request['eth'] = 1;
         else
             $request['eth'] = 0;
+
+        if($request->sockets == NULL)
+            $request['sockets'] = 0;
 
         //echo "superior: ".$request['superior'];
         //echo "eth :" .$request['eth'];

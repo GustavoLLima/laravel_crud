@@ -69,8 +69,8 @@
             <input class="form-check-input" {{-- $filters->eth ? 'checked' : '' --}} type="checkbox" name="eth" id="eth"> -->
         </div>
         <div class="form-group col-md-2">
-            <!-- <strong>Sockets:</strong> -->
-            <input type="number" name="sockets" value="@if (isset($filters->sockets) AND $filters->sockets != NULL) $filters->sockets @endif" class="form-control" placeholder="Nr. of Sockets">
+            <strong>Sockets:</strong>
+            <input type="number" name="sockets" value="@if(isset($filters->sockets) AND $filters->sockets != NULL){{$filters->sockets}}@endif" class="form-control" placeholder="Nr. of Sockets">
         </div>
         <!-- <div class="form-row">
         <div class="form-group col-md-6">

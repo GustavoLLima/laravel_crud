@@ -33,7 +33,7 @@ docker exec -it php-apache /bin/bash
 composer install
 ```
 
-5 - Alterar o arquivo .env (pode ser copiando o example: cp .env.example .env) e alterar essas linhas:
+5 - Gerar o arquivo .env (pode ser copiando o example: cp .env.example .env) e alterar essas linhas:
 
 ```
 DB_CONNECTION=mysql

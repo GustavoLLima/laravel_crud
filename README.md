@@ -61,8 +61,10 @@ A home está em:
 http://localhost/dashboard
 
 O seed gera alguns dados iniciais apenas para ter uma visão geral do sistema. No login, o usuário criado por padrão utiliza como login/senha:
+```
 testuser@gmail.com
 123456789
+```
 
 O cadastro de um novo usuário pode ser feito em:
 

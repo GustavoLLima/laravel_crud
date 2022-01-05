@@ -1,4 +1,4 @@
-Projeto para estudar Laravel8, utilizando infra montada no Docker. Trata-se de um protótipo de um sistema de cadastro/pesquisa da qualidade de itens em um MMORPG (nesse caso, pensou-se nos atributos relacionados ao Diablo II: Resurrected). Existe CRUD de tipos, níveis e itens. Cada item está relacionado à um tipo, um nível, além de outros atributos.
+Projeto para estudar Laravel8, utilizando infra montada no Docker. Trata-se de um protótipo de um sistema de cadastro/pesquisa da qualidade de itens em um MMORPG (nesse caso, pensou-se nos atributos relacionados ao Diablo II: Resurrected). O sistema conta com CRUD de tipos, níveis e itens. Cada item está relacionado à um tipo, um nível, além de outros atributos.
 
 A estrutura das pastas é a seguinte:
 

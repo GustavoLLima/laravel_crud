@@ -26,8 +26,8 @@ services:
             PMA_HOST: db
         depends_on:
             - db
-    php-apache2:
-        container_name: php-apache2
+    php-apache:
+        container_name: php-apache
         build:
           context: ./php
         ports:
@@ -39,43 +39,3 @@ services:
           - ./apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
         depends_on:
           - db
-# services:
-#     apache:
-#         container_name: apache
-#         build:
-#             context: ./php
-#             dockerfile: Dockerfile
-#         depends_on:
-#             - db
-#         volumes:
-#             - ./php/src:/var/www/html/
-#         ports:
-#             - 80:80
-#         stdin_open: true # docker run -i
-#         tty: true        # docker run -t
-#     db:
-#         container_name: db
-#         restart: always
-#         build:
-#             context: ./db
-#             dockerfile: Dockerfile
-#         environment:
-#             MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
-#             MYSQL_DATABASE: MYSQL_DATABASE
-#             MYSQL_USER: MYSQL_USER
-#             MYSQL_PASSWORD: MYSQL_PASSWORD
-#         #optional: keep db information
-#         volumes:
-#             - ./db/store_db:/var/lib/mysql
-#         ports:
-#             - "9906:3306"
-
-#     phpmyadmin:
-#         image: phpmyadmin/phpmyadmin
-#         ports:
-#             - '8080:80'
-#         restart: always
-#         environment:
-#             PMA_HOST: db
-#         depends_on:
-#             - db

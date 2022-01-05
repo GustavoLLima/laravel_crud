@@ -1,31 +1,57 @@
 Projeto para estudar Laravel8, utilizando infra montada no Docker
 
-Ao baixar o projeto, verificar:
+A estrutura das pastas é a seguinte:
 
-1 - Alterar o arquivo docker-compose.yml (OPCIONAL, necessário apenas se alguma das portas que os containers usam já estiver sendo utilizado por outra aplicação. Também é possível alterar o nome dos containers)
+- apache - Contém o arquivo de configuração do servidor web utilizado para rodar o Laravel.
+- src - Pasta que contém o projeto a ser executado, nesse caso, o Laravel.
+- db - Contém o Dockerfile referente ao container do banco de dados. Nesse projeto foi utilizado o MySQL.
+- php - Contém o Dockerfile referente ao container do servidor web. Esta estrutura usa o apache.
 
-2 - Supondo que nada foi alterado no docker-compose, montar as imagens e subir os containers (docker-compose up -d)
+Além das pastas, o docker-compose.yml está na raíz do projeto. Nesse arquivo é possível ver como o projeto foi estruturado no Docker. Toda a configuração das portas de uso (80 para o servidor web, 8080 para o SGBD phpmyadmin e 3306 para o db) é feita nesse arquivo. É necessário verificar se as portas não irão entrar em conflito por outros projetos que já estejam sendo executado no host. Também é possível alterar o nome dos containers nesse arquivo. É recomendado ter cuidado ao alterar esse arquivo, tanto no nome dos containers quanto nas portas, pois esses dados são utilizados em várias prates do sistema. Por exemplo, o laravel usa o nome do container do banco de dados (db) para conectar.
 
-3 - Executar os seguintes comandos no container que roda o apache, através do comando docker-compose exec nome_do_container comando (na opção padrão é o php-apache, logo, todos os comandos começam com docker-compose exec php-apache2 comando):
+Para baixar e executar o projeto, basta seguir os passos abaixo:
 
-- compose install
+1 - Clonar o projeto.
 
-- php artisan migrate
+2 - Montar as imagens e os containers no Docker através do comando:
 
-- cp .env.example .env
+```
+docker-compose up -d
+```
 
-Além de copiar esse arquivo, alterar as configurações para conectar com o container do banco. Se nada foi alterado, fica:
+ps: Se for no windows, pode necessário adicionar a pasta no "file sharing resources", mais dicas em: https://stackoverflow.com/questions/60754297/docker-compose-failed-to-build-filesharing-has-been-cancelled
 
+3 - Abrir um terminal interativo com o container do servidor web para executar todos os comandos seguintes:
+
+```
+docker exec -it php-apache /bin/bash
+```
+
+4 - Uma vez que a estrutura esteja montada, instalar os pacotes necessários para rodar o projeto:
+
+```
+composer install
+```
+
+5 - Alterar o arquivo .env (pode ser copiando o example: cp .env.example .env) e alterar essas linhas:
+
+```
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
 DB_DATABASE=MYSQL_DATABASE
 DB_USERNAME=MYSQL_USER
 DB_PASSWORD=MYSQL_PASSWORD
+```
 
-- php artisan key:generate
+6 - Gerar uma chave de segurança para o Laravel, limpar o cache das rotas e executar o migrate com seed para montar o banco e popular a tabela:
 
-O projeto estará disponível na máquina host, através do endereço:
+```
+php artisan key:generate
+php artisan route:cache
+```
+
+Se tudo ocorreu corretamente, a home do Laravel estará disponível na máquina host, através do endereço:
 
 http://localhost/
 

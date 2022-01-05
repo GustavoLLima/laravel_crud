@@ -49,6 +49,7 @@ DB_PASSWORD=MYSQL_PASSWORD
 ```
 php artisan key:generate
 php artisan route:cache
+php artisan migrate
 ```
 
 Se tudo ocorreu corretamente, a home do Laravel estará disponível na máquina host, através do endereço:

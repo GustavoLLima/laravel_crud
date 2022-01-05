@@ -49,7 +49,7 @@ DB_PASSWORD=MYSQL_PASSWORD
 ```
 php artisan key:generate
 php artisan route:cache
-php artisan migrate
+php artisan migrate:fresh --seed
 ```
 
 Se tudo ocorreu corretamente, a home do Laravel estará disponível na máquina host, através do endereço:
@@ -60,6 +60,11 @@ A home está em:
 
 http://localhost/dashboard
 
-Para acessar as páginas internas, é necessário realizar um cadastro, feito em:
+O seed gera alguns dados iniciais apenas para ter uma visão geral do sistema. No login, o usuário criado por padrão utiliza como login/senha:
+testuser@gmail.com
+123456789
+
+O cadastro de um novo usuário pode ser feito em:
 
 http://localhost/register
+
